@@ -1,0 +1,1 @@
+select * from backpacker_blog_topics;

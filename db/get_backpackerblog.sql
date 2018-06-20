@@ -1,0 +1,1 @@
+select * from backpackers_blog_posts where topic_id =$1;

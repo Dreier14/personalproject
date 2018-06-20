@@ -1,0 +1,1 @@
+DELETE FROM country_blog_posts WHERE id = $1;

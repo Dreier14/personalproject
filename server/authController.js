@@ -1,0 +1,93 @@
+const axios = require('axios');
+
+module.exports = {
+  login: (req, res) => {
+    console.log('hit');
+    console.log('query', req.query)
+    console.log('host', req.headers.host)
+    const payload = {
+      client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
+      client_secret: process.env.AUTH0_CLIENT_SECRET,
+      code: req.query.code,
+      grant_type: 'authorization_code',
+      redirect_uri: `http://${req.headers.host}/api/auth/callback`
+    };
+    console.log('code', payload.code)
+    
+    // This is step 5 in the diagram.
+    function tradeCodeForAccessToken() {
+        console.log('payload', payload)
+      return axios.post(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`, payload);
+    }
+
+    // This is step 7 in the diagram.
+    function tradeAccessTokenForUserInfo(accessTokenResponse) {
+      console.log('Token', accessTokenResponse)
+      return axios.get(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo?access_token=${accessTokenResponse.data.access_token}`);
+    }
+    console.log("login hit");
+    function storeUserInfoInDatabase(response) {
+      const userData = response.data;
+      const db = req.app.get('db');
+      db.find_user_by_auth0_id({
+        auth0_id: userData.sub
+      }).then(users => {
+        if (users.length) {
+          const userFromDb = users[0];
+          console.log('userFromDb', userFromDb);
+          req.session.user = userFromDb;
+          res.redirect('/profile');
+        } else {
+          return db.create_user({
+            auth0_id: userData.sub,
+            email: userData.email,
+            picture: userData.picture,
+            username: userData.name
+          }).then(newUser => {
+            console.log('newUser', newUser);
+            req.session.user = newUser;
+            res.redirect('/profile');
+
+            
+          });
+        }
+      });
+    }
+
+    tradeCodeForAccessToken()
+      .then(tradeAccessTokenForUserInfo)
+      .then(storeUserInfoInDatabase)
+      .catch(error => {
+        console.log('Server error', error);
+        res.status(500).send('Error happened: ' + error);
+      });
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    res.end();
+  },
+  getUser: (req, res) => {
+    res.json(req.session.user);
+  },
+  editProfile: (req, res) => {
+    const { username, email, picture, about } = req.body;
+    const db = req.app.get('db');
+    console.log(username, email, picture)
+    console.log('id from editprofile', req.session.user.id);
+
+    db.edit_user({
+      id: req.session.user.id,
+      email,
+      username,
+      picture,
+      about
+    }).then(updatedUsers => {
+      console.log(updatedUsers);
+      req.session.user = updatedUsers[0];
+      res.status(200).json(req.session.user);
+    }).catch(error => {
+      console.log('edit profile error', error);
+      res.status(500).json({ message: 'Error editing profile' });
+    });
+  }
+};
