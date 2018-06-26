@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import Nav from './Nav';
+import Nav from '../Nav/Nav';
 import {connect} from 'react-redux';
-import SearchBar from './SearchBar';
+import "../Css/Buttons.css"
+import styled from 'styled-components';
+import './CountryBlog.css';
+
+
+const Background = styled.div
+      `background: linear-gradient(rgba(177, 177, 177, 0.6), rgba(177, 177, 177, 0.6)), url('https://images.pexels.com/photos/21014/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+       min-height: 150vh;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: cover;
+      position: relative;`
+
 
  class CountryBlog extends Component {
     constructor(){
@@ -84,8 +97,11 @@ import SearchBar from './SearchBar';
     }
 
     deletePost(id){
+        console.log(id)
         axios.delete(`/api/deleteCountryBlogPost/${id}`).then(response =>
-        {
+        {   
+            console.log(response);
+
             this.getCountryBlogPost()
         }).catch(err => console.log("axios delete error---------->", err))
         console.log(id)
@@ -102,19 +118,25 @@ import SearchBar from './SearchBar';
         console.log(this.state.posts)
         let username = this.state.posts && this.state.posts.map(element => {
             //console.log(element.username);
+            console.log(element)
             return (
                 <div key={element.id}>
                     <h1>{element.username}</h1>
-                    <img src ={element.picture} className ="photo"/>
+                    <img src ={element.picture} className ="photo" height="100px" width="100px"/>
+                    <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , width: "63.5%"}}>
                     <h5>{element.post}</h5>
-                    <h6>{element.stamp}</h6>
-                    
+                    <h6>Date:{element.stamp}</h6>
+                    </div>
                     {this.props.state.user.id === element.user_id ?
                     <div>
-                    <textarea className ="inputChange" id={element.id} onChange = { event => this.handleChanges(event.target.value)}></textarea> 
+                    <textarea className ="inputChange" rows="9" cols="50" id={element.id} onChange = { event => this.handleChanges(event.target.value)}></textarea> 
                     <br/>
-                    <button onClick={() => this.deletePost(element.id)}>Delete</button>
-                    <button onClick={() => this.editCountryBlogPost(element.id)}> Edit Post </button>
+                    <div className = "movebutton1">
+                    <button className="button" onClick={() => this.deletePost(element.id)}>Delete</button>
+                    </div>
+                    <div className = "movebutton2">
+                    <button className="button" onClick={() => this.editCountryBlogPost(element.id)}> Edit Post </button>
+                    </div>
                     </div> :''}
                     
                 </div>)
@@ -125,16 +147,24 @@ import SearchBar from './SearchBar';
        
         <div> 
          <Nav/>
-     
-    
-        {username && username} 
-        <br/> 
-        
-        <textarea className ="input" onChange = { event => this.handleChange(event.target.value)} value={this.state.currentPost}></textarea> 
-        <br/> 
-      
-         <button onClick = {() => {this.createCountryBlogPost()}}> Create Post </button>
-         </div>
+            <Background>
+                 <div style={{paddingTop: '80px'}}>
+                        <div className= "center" syle={{position:'absolute'}}>
+                        <div style={{color:'rgb(30, 74, 121)', fontSize:'3em'}}> Travel Blog Forum </div>
+                        <hr/>
+                        {username && username} 
+                        <br/> 
+                        <hr/>
+                        <div className='createpost' style = {{color:'rgb(30, 74, 121)', fontSize:'3em'}} >Create a Post</div>
+                            <textarea className ="input" rows="9" cols="50" onChange = { event => this.handleChange(event.target.value)} value={this.state.currentPost}></textarea> 
+                        <br/>
+                        <div className = "movebutton1">
+                            <button className="button" onClick = {() => {this.createCountryBlogPost()}}> Create Post </button>
+                        </div>
+                        </div>
+                 </div> 
+            </Background>      
+        </div>
         
         );
     }

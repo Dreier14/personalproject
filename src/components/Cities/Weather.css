@@ -1,0 +1,12 @@
+.Weather{
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.76);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    color:rgba(30, 74, 121) ;
+        
+        
+} 

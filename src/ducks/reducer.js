@@ -4,6 +4,7 @@ const UPDATE_EMAIL = 'UPDATE_EMAIL';
 const UPDATE_PICTURE = 'UPDATE_PICTURE';
 const UPDATE_USERNAME = 'UPDATE_USERNAME';
 const UPDATE_ABOUT = 'UPDATE_ABOUT';
+const UPDATE_COUNTRY = 'UPDATE_COUNTRY';
 
 const initialState = {
   user: null,
@@ -23,6 +24,8 @@ export default function(state = initialState, action) {
       return {...state, user: { ...state.user, username: action.payload} };
     case UPDATE_ABOUT:
       return{...state, user: {...state.user, about: action.payload} };
+    case UPDATE_COUNTRY:
+      return{...state, user: {...state.user, country: action.payload} }
     default:
       return state;
   }
@@ -72,5 +75,13 @@ export function updateAbout(about){
     type: UPDATE_ABOUT,
     payload: about,
   };
+}
+
+export function updateCountry(country){
+  console.log('reducer',country)
+  return{
+    type: UPDATE_COUNTRY,
+    payload: country,
+  }
 }
 

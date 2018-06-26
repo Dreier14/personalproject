@@ -1,0 +1,103 @@
+
+.button {
+    border-top: 1px solid #96d1f8;
+        background: #3259cf;
+        background: -webkit-gradient(linear, left top, left bottom, from(#3259cf), to(#3259cf));
+        background: -webkit-linear-gradient(top, #3259cf, #3259cf);
+        background: -moz-linear-gradient(top, #3259cf, #3259cf);
+        background: -ms-linear-gradient(top, #3259cf, #3259cf);
+        background: -o-linear-gradient(top, #3259cf, #3259cf);
+        padding: 5px 10px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+        -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+        box-shadow: rgba(0,0,0,1) 0 1px 0;
+        text-shadow: rgba(0,0,0,.4) 0 1px 0;
+        color: #ffffff;
+        font-size: 16px;
+        font-family: Helvetica, Arial, Sans-Serif;
+        text-decoration: none;
+        vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #434f57;
+   background: #434f57;
+   color: #3494cf;
+   }
+.button:active {
+   border-top-color: #2584c4;
+   background: #2584c4;
+   }
+    
+
+.button>a{
+    text-decoration: none;
+    color: white;
+}
+   
+
+.inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 1;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .inputfile + label {
+        border-top: 1px solid #96d1f8;
+        background: #3259cf;
+        background: -webkit-gradient(linear, left top, left bottom, from(#3259cf), to(#3259cf));
+        background: -webkit-linear-gradient(top, #3259cf, #3259cf);
+        background: -moz-linear-gradient(top, #3259cf, #3259cf);
+        background: -ms-linear-gradient(top, #3259cf, #3259cf);
+        background: -o-linear-gradient(top, #3259cf, #3259cf);
+        padding: 5px 10px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+        -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+        box-shadow: rgba(0,0,0,1) 0 1px 0;
+        text-shadow: rgba(0,0,0,.4) 0 1px 0;
+        color: #ffffff;
+        font-size: 16px;
+        font-family: Helvetica, Arial, Sans-Serif;
+        text-decoration: none;
+        vertical-align: middle;
+        }
+       
+    
+    
+    .inputfile:focus + label,
+    .inputfile + label:hover {
+    border-top-color: #28597a;
+    background: #28597a;
+    color: #ccc;
+    }
+
+    .homecountry{
+        border-top: 1px solid #96d1f8;
+        background: #65a9d7;
+        background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+        background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+        background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+        background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+        background: -o-linear-gradient(top, #3e779d, #65a9d7);
+        padding: 7.5px 15px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+        -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+        box-shadow: rgba(0,0,0,1) 0 1px 0;
+        text-shadow: rgba(0,0,0,.4) 0 1px 0;
+        color: white;
+        font-size: 16px;
+        font-family: Helvetica, Arial, Sans-Serif;
+        text-decoration: none;
+        vertical-align: middle;
+    }

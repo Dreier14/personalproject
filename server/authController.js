@@ -14,13 +14,12 @@ module.exports = {
     };
     console.log('code', payload.code)
     
-    // This is step 5 in the diagram.
+   
     function tradeCodeForAccessToken() {
         console.log('payload', payload)
       return axios.post(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`, payload);
     }
 
-    // This is step 7 in the diagram.
     function tradeAccessTokenForUserInfo(accessTokenResponse) {
       console.log('Token', accessTokenResponse)
       return axios.get(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo?access_token=${accessTokenResponse.data.access_token}`);
@@ -48,7 +47,7 @@ module.exports = {
             req.session.user = newUser;
             res.redirect('/profile');
 
-            
+
           });
         }
       });
@@ -70,17 +69,18 @@ module.exports = {
     res.json(req.session.user);
   },
   editProfile: (req, res) => {
-    const { username, email, picture, about } = req.body;
+    const { username, email, picture, about, country } = req.body;
     const db = req.app.get('db');
     console.log(username, email, picture)
     console.log('id from editprofile', req.session.user.id);
-
+    console.log(req.body.country)
     db.edit_user({
       id: req.session.user.id,
       email,
       username,
       picture,
-      about
+      about,
+      country
     }).then(updatedUsers => {
       console.log(updatedUsers);
       req.session.user = updatedUsers[0];

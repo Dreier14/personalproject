@@ -3,9 +3,9 @@ module.exports ={
     getCountryBlogPost: (req, res) =>{
         const {countries_id} = req.params
         const dbInstance = req.app.get('db')
-        console.log("get country blog post",req.params);
+       
         dbInstance.get_countryBlogPost(countries_id).then(countryBlogPost =>{
-            console.log(countryBlogPost);
+            
             if(countryBlogPost) res.status(200).json({countryBlogPost})
             else res.status(200).json({countryBlogPost: "Post does not exist"})
         }).catch(err => console.log('Get country blog post db error------', err));
@@ -14,12 +14,12 @@ module.exports ={
     createCountryBlogPost: (req, res) => {
         const {id}= req.session.user 
         const {username, picture, post, stamp, countries_id} = req.body;
-        console.log("hey brandon was here" , req.body)
+        
         // const newCountryPost = { id, username, picture, post, stamp} 
         const dbInstance = req.app.get('db');
         dbInstance.create_countryBlogPost([id, username, picture, post, stamp, countries_id]).then(countryBlogPost =>{
-            console.log(countryBlogPost)
-            res.status(200).json({message: 'Your post has been created!'});
+                console.log(countryBlogPost);
+            res.status(200).json(countryBlogPost);
         }).catch(err => console.log('Post error------------',err));
 
     },
@@ -28,23 +28,20 @@ module.exports ={
         const {post_id}= req.params;
         const {id}= req.session.user;
         const { post, stamp } = req.body;
-        console.log(req.body, "hey req.body -------------->")
-        console.log(req.params, "hey req.params------------------>");
         const dbInstance = req.app.get('db');
         dbInstance.edit_countryBlogPost([post, stamp, post_id])
         .then(response => {
-            console.log('edit response---', response)
-                res.status(200).json({countryBlogPost: response});
+            res.status(200).json({countryBlogPost: response});
             }).catch(err => console.log('Database Error----------', err));
     },
     
     deleteCountryBlogPost: (req, res) => {
         const {post_id}= req.params;
         const {id}= req.session.user
+        console.log(post_id)
         const dbInstance = req.app.get('db');
-        console.log(req.body)
-        console.log(req.params);
         dbInstance.delete_countryBlogPost(post_id).then(()=>{
+            console.log('deleted');
         res.status(200).json({message: 'Post Deleted!'});
     }).catch(err => console.log('Post delete error----------', err))
 
@@ -74,10 +71,10 @@ module.exports ={
         const {post_id}= req.params;
         const {id}= req.session.user
         const { post, stamp } = req.body;
-        console.log("hello",req.body, id)
+        
         const dbInstance = req.app.get('db');
         dbInstance.edit_backpackerblog([post, stamp, post_id])
-        .then(response => { console.log('edit response---', response)
+        .then(response => { console.log('edit response---', 'hit')
             res.status(200).json({backpackerBlog: response})
         }).catch(err => console.log('Database put error', err));
     },
@@ -105,7 +102,10 @@ module.exports ={
     getCities: (req, res) => {
       const { country_id, info, cities, picture } = req.body;
       const dbInstance = req.app.get('db')
-      dbInstance.get_cities().then(getCity => {
+      const { id } = req.params;
+      console.log(id)
+      dbInstance.get_cities(id).then(getCity => {
+          console.log('city', getCity)
           if(getCity) res.status(200).json({getCity})
           else res.status(200).json({getCity: "city dosent exist"})
       }).catch(err => console.log("Cities unavailable----------->", err))

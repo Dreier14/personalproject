@@ -5,15 +5,15 @@ body {
   }
   
   a {
-    color: #000;
+    color: rgba(25, 88, 206, 0.836);
   }
   
   /* header */
   
   .header {
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-    position: absolute;
+    position: fixed;
     top:0;
     width: 100%;
     z-index: 3;
@@ -24,13 +24,13 @@ body {
     padding: 0;
     list-style: none;
     overflow: hidden;
-    background-color: #fff;
+    background-color:  rgb(255, 255, 255);
   }
   
   .header li a {
     display: block;
     padding: 20px 20px;
-    border-right: 1px solid #f4f4f4;
+    border-right: 1px solid  rgb(255, 255, 255);
     text-decoration: none;
   }
   
@@ -42,9 +42,10 @@ body {
   .header .logo {
     display: block;
     float: left;
-    font-size: 2em;
+    margin:top;
     padding: 10px 20px;
     text-decoration: none;
+    font-size: 2.5em;
   }
   
   /* menu */

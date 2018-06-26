@@ -1,0 +1,31 @@
+/* .Country{
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.493);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+} */
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    border: rgba(30, 74, 121, 0.692);
+    border-width:thin;
+}
+.movebutton1{
+    justify-content: center;
+    text-align: right;
+    margin: 5px;
+    padding-top: 10px;
+    
+}
+
+.movebutton2{
+justify-content: center;
+text-align: right;
+margin:5px;
+padding-bottom: -40px;
+}

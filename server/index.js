@@ -21,7 +21,7 @@ const app = express();
 
 
 
-// app.use(express.static(path.join(__dirname, '/../build')));
+app.use(express.static(path.join(__dirname, '/../build')));
 
 
 app.use(bodyParser.json());
@@ -53,7 +53,7 @@ app.get('/api/getBackpackerBlogPost/:topic_id', ctrl.getBackpackerBlogPost);
 app.put('/api/editBackpackerBlogPost/:post_id', ctrl.editBackpackerBlogPost);
 app.delete('/api/deleteBackpackerBlogPost/:post_id', ctrl.deleteBackpackerBlogPost);
 app.get('/api/getCountries/', ctrl.getCountries);
-app.get('/api/getCities/', ctrl.getCities);
+app.get('/api/getCities/:id', ctrl.getCities);
 app.get('/api/getCountry/',ctrl.getCountry);
 app.get('/api/getBackpackerBlogTopics/',ctrl.getBackpackerBlogPostTopics);
 
@@ -76,6 +76,11 @@ app.get('/api/upload', (req, res) => {
     };
         res.json(payload);
 
+})
+
+
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
 })
 
 

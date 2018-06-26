@@ -1,0 +1,47 @@
+
+.background{
+    background-image: url('https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  
+}
+
+
+
+
+/* .greeting{
+    padding-top: 20%;
+    text-align: center;
+    border-bottom: 3px solid rgba(25, 88, 206, 0.836);
+    background-color: rgba(211, 211, 211, 0.274);
+  
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .CountryBlogLanding{
+    height: 300px;
+    width: 80%;
+    margin: 0 auto;
+    background: no-repeat;
+    background-position: center;
+    display:flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */

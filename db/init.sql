@@ -44,7 +44,7 @@ create table if not exists cities(
   country_id integer references country(id),
   info text,
   cities text,
-  picture text
+  pictures text
 );
 
 drop table if exists users;
@@ -55,7 +55,8 @@ create table if not exists users (
   email text,
   picture text,
   username text,
-  about text 
+  about text,
+  country text
 );
 
 drop table if exists backpacker_blog_topics;

@@ -1,0 +1,25 @@
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border: rgba(30, 74, 121, 0.692);
+    border-width:thin;
+}
+.movebutton1{
+    text-align: right;
+    margin: 5px;
+    padding-top: 10px;
+}
+
+.movebutton2{
+    text-align: right;
+    margin: 5px;
+    padding-top:10px;
+
+}
+
+.text{
+    color:rgba(30, 74, 121);
+}

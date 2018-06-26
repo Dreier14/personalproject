@@ -1,0 +1,15 @@
+.Error{
+justify-content: center;
+align-items: center;
+/* padding-top: 5em; */
+background: rgba(255, 255, 255, 0.493);
+position: absolute;
+width: 100%;
+top: 20%;
+}
+
+.Text{
+text-align: center;
+font-size: 3em;
+color:rgba(30, 74, 121, 0.836) ;
+}
