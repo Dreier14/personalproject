@@ -43,13 +43,13 @@ class CountryforBlog extends Component {
         return(
 
             <div className = "CountryBlogLanding" style={{backgroundImage: `url(${element.pictures})`, backgroundSize: 'cover', height:'80vh', display: 'flex', justifyContent:'center', alignItems: 'center', fontSize:'40px'}} key = {element.id}>
-                
                 <br/>
-                <div className ="CountryforBlog">
-                <Link style={{color:'rgba(30, 74, 121)', textDecoration:'none'}} to={{pathname: `/country/${element.country}/countryblog`, state: element.id}}> <LottieController/>{element.country}</Link>
-                {/* <img src ={element.pictures}/> */}
-                </div>
-               
+                    <div className ="CountryforBlog">
+                        <Link style={{color:'rgba(30, 74, 121)', textDecoration:'none'}} to={{pathname: `/country/${element.country}/countryblog`, state: element.id}}> 
+                            <LottieController/>
+                            {element.country}
+                        </Link>
+                    </div>
             </div>
             
         )
@@ -61,10 +61,10 @@ class CountryforBlog extends Component {
                     <Background>
                         <div style={{paddingTop: '80px'}}>
                             <div className="Countries">
-                            Countries
-                            <LottieCountry/>
-                            {countries}
-                             </div>
+                                 Countries
+                              <LottieCountry/>
+                                {countries}
+                            </div>
                         </div>
                     </Background>
             </div>

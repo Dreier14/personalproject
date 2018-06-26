@@ -24,15 +24,15 @@ class ErrorComponent extends Component {
               <Background>
                 <div className = "Error">
                     <div className = "Text">
-                    404 Error 
-                    <br/>
-                    The Page You Requested is Invalid
-                    <br/>
-                    <GoAlert/>
-                    <br/>
-                    Click on the Link Below to Return to the Homepage
-                    <br/>
-                    <Link to="/" >  <LottieError/></Link>
+                         404 Error 
+                     <br/>
+                        The Page You Requested is Invalid
+                     <br/>
+                        <GoAlert/>
+                     <br/>
+                        Click on the Link Below to Return to the Homepage
+                     <br/>
+                        <Link to="/" >  <LottieError/></Link>
                     </div>
                 </div>
               </Background>

@@ -5,7 +5,8 @@ import axios from 'axios';
 import {connect} from 'react-redux'; 
 import '../CountryBlog/CountryBlog.css';
 import "../Css/Buttons.css";
-import styled from 'styled-components'
+import styled from 'styled-components';
+// import BPBlog from '../BackpackerBlog/BackpackerBlog';
 
 const Backgroundbackpacker = styled.div`
             background: linear-gradient(rgba(177, 177, 177, 0.6), rgba(177, 177, 177, 0.6)), url('https://images.pexels.com/photos/34511/norway-mountain-sky-blue.jpg?cs=srgb&dl=adventure-backpack-beautiful-34511.jpg&fm=jpg');
@@ -17,8 +18,8 @@ const Backgroundbackpacker = styled.div`
             position: relative;`
 
 class BackpackerBlog extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state ={
             posts: [],
             currentPost: '',
@@ -32,19 +33,20 @@ class BackpackerBlog extends Component {
             else this.getBackpackerBlogPost()}
  
 
-    handleChange(val){
+    handleChange = (val) =>{
         this.setState({
             currentPost: val
         })
     }
 
-    handleChanges(val){
+    handleChanges =(val) =>{
         this.setState({
             editPost: val
         })
     }
     createBackpackerBlogPost(){
     //    console.log(this.props) 
+        // console.log(this.props.location.state);
         const {username, picture} = this.props.state.user;
         let param = {
             topic_id: this.props.location.state,   
@@ -64,6 +66,7 @@ class BackpackerBlog extends Component {
     }
 
     getBackpackerBlogPost(){
+        // console.log(this.props.location.state);
         axios.get(`/api/getBackpackerBlogPost/${this.props.location.state}`).then(response =>{
             console.log(response)
             this.setState({
@@ -72,7 +75,7 @@ class BackpackerBlog extends Component {
         }).catch(err => console.log ('axios-------------> get backpacker call'))
     }
 
-    editBackpackerBlogPost(post_id){
+    editBackpackerBlogPost = (post_id) =>{
         console.log(post_id, "id");
         let body = {
             post: this.state.editPost,
@@ -89,46 +92,44 @@ class BackpackerBlog extends Component {
         }).catch(err => console.log('axios edit error', err));
     }
 
-    deletePost(id){
+    deletePost = (id) => {
         axios.delete(`/api/deleteBackpackerBlogPost/${id}`).then(response =>{
             this.getBackpackerBlogPost()
         }).catch(err => console.log('delete error -------------------->', err))
         console.log(id)
     }
 
-    clearAllFields(){
+    clearAllFields = () => {
         this.setState({
             posts: ''
         })
     }
     render() {
         
-        
-
         let username = this.state.posts && this.state.posts.map(element => {
             console.log(element.username)
             return(
                 <div key ={element.id}>
                 <h3> {element.username}</h3>
-
                 <img src= {element.picture} className="photo" height="100px" width="100px"/>
-                <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , width: "63.5%"}}>
+            <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , width: "63.5%"}}>
                 <h5>{element.post}</h5>
                 <h6>{element.stamp}</h6>
-                </div>
-                {this.props.state.user.id === element.user_id ?
-                <div>
+            </div>
+            {this.props.state.user.id === element.user_id ?
+            <div>
                 <textarea className ="inputChange" rows="9" cols="50" id={element.id} onChange = { event => this.handleChanges(event.target.value)}></textarea> 
-                <br/>
+                    <br/>
                 <div className = "movebutton1">
-                <button className="button"onClick={() => this.deletePost(element.id)}>Delete</button>
+                    <button className="button"onClick={() => this.deletePost(element.id)}>Delete</button>
                 </div>
                 <div className = "movebutton2">
-                <button className="button"onClick={() => this.editBackpackerBlogPost(element.id)}> Edit Post </button>
+                    <button className="button"onClick={() => this.editBackpackerBlogPost(element.id)}> Edit Post </button>
                 </div>
-                </div> : ''}
-                </div>)
-        }).reverse()
+            </div> : ''}
+        </div>
+            )
+    }).reverse()
             return (
               <div> 
                  <Nav/> 

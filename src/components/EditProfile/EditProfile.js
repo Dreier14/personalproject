@@ -51,15 +51,7 @@ class EditProfile extends Component {
       }
     })
   }
-    // if (this.props.user === null){ 
-    //   <Redirect to={'/'}/>
-    //   // alert("You Must Login or Sign Up to Post!")
-    // } else {
-    //   this.editProfile()
-    // }
- 
-  
-
+   
   handleImageUpload = (file) => {
 
     axios.get('/api/upload').then(response => {
@@ -118,7 +110,6 @@ class EditProfile extends Component {
     
     }).then(response => {
         updateUsername(this.state.username)
-        // updatePicture(this.state.picture)
         updateEmail(this.state.email)
         updateAbout(this.state.about)
         updateCountry(this.state.country)
@@ -145,83 +136,78 @@ class EditProfile extends Component {
 
   
   render() {
-    // if (!this.props.user) { 
-    //   this.props.history.push('/')
-    // };
     
-      
-    //  const {username, picture, email, about, country} = this.props.user
     return (
       <div>
         <Nav/>
-        {/* {this.props.user && */}
           <div>
            <Background>
            <div style={{paddingTop: '80px'}}>
-           <div className="center">
-           <h1 style={{color:'rgb(30, 74, 121)'}}>Edit Profile</h1>
-           <hr/>
-           <br/>
-           <div> User Name </div>
-           <br/>
-           <input onChange= {(event)=>this.updateUsername(event.target.value)} placeholder={this.props.username}/>
-           <br/>
-           <br/>
-           <div> Email </div>
-           <br/>
-           <input onChange={(event)=>this.updateEmail(event.target.value)} placeholder={this.props.email}/>
-           <br/>
-           <br/>
-           <div> Profile Photo </div>
-           <br/>
-           {/* <div className = "image"> */}
-           <input type="file" name="file" id="file" className="inputfile" onChange={(event)=>this.handleImageUpload(event.target.files)} placeholder={this.props.picture}/>
-           <label for="file">Choose a file</label>
-           <br/>
-           <br/>
-           <img src ={this.state.picture}/>
-           <br/>
-           <div>Country</div>
-           <select classname= "Home-Country" value= {this.state.country} onChange={event => this.updateCountry(event.target.value)}>
-           <option value = "Default"> Select </option>
-           <option value = "United States"> United States</option>
-           <option value = "Canada"> Canada </option>
-           <option value = "England"> England </option>
-           <option value = "Ireland"> Ireland </option>
-           <option value = "France"> France </option>
-           <option value = "Scotland"> Scotland </option>
-           <option value = "Geramany">Germany </option>
-           <option value = "Italy"> Italy </option>
-           <option value = "Spain"> Spain </option>
-           <option value = "Portugal"> Portugal </option>
-           <option value = "Denmark"> Denmark </option>
-           <option value = "Sweden"> Sweden </option>
-           <option value = "Norway"> Norway </option>
-           <option value = "Poland"> Poland </option>
-           <option value = "China"> China </option>
-           <option value = "Japan"> Japan </option>
-           <option value = "Turkey"> Turkey </option>
-           <option value = "Russia"> Russia </option>
-           <option value = "Ukraine"> Ukraine</option>
-           <option value = "Mexico"> Mexico </option>
-           <option value = "Netherlands"> Netherlands </option>
-           <option value = "Czech Republic"> Czech Republic </option>
-           <option value = "Thailand"> Thailand </option>
-           <option value = "Veitnam"> Veitnam </option>
-           <option value = "Korea">Korea</option>
-           </select>
-           <br/> 
-           <br/>
-           <div> About Me </div>
-           <br/>
-           <textarea className ="input" rows="10" cols="80"  onChange = {event => this.handleChange(event.target.value)} placeholder={this.props.about}></textarea>  
-           <br/>
-           <br/>
-           <button className="button" onClick={this.editProfile}>Update</button>
-           </div>
-           </div>
-           </Background>
-           </div>
+            <div className="center">
+              <div className="text">
+                <h1 style={{color:'rgb(30, 74, 121)'}}>Edit Profile</h1>
+                  <hr/>
+                  <br/>
+                    <div> User Name </div>
+                      <br/>
+                    <input onChange= {(event)=>this.updateUsername(event.target.value)} placeholder={this.props.username}/>
+                      <br/>
+                      <br/>
+                    <div> Email </div>
+                      <br/>
+                    <input onChange={(event)=>this.updateEmail(event.target.value)} placeholder={this.props.email}/>
+                      <br/>
+                      <br/>
+                    <div> Profile Photo </div>
+                      <br/>
+                    <input type="file" name="file" id="file" className="inputfile" onChange={(event)=>this.handleImageUpload(event.target.files)} placeholder={this.props.picture}/>
+                      <label for="file">Choose a file</label>
+                        <br/>
+                        <br/>
+                      <img src ={this.state.picture}/>
+                        <br/>
+                    <div>Country</div>
+                        <select classname= "Home-Country" value= {this.state.country} onChange={event => this.updateCountry(event.target.value)}>
+                            <option value = "Default"> Select </option>
+                            <option value = "United States"> United States</option>
+                            <option value = "Canada"> Canada </option>
+                            <option value = "England"> England </option>
+                            <option value = "Ireland"> Ireland </option>
+                            <option value = "France"> France </option>
+                            <option value = "Scotland"> Scotland </option>
+                            <option value = "Geramany">Germany </option>
+                            <option value = "Italy"> Italy </option>
+                            <option value = "Spain"> Spain </option>
+                            <option value = "Portugal"> Portugal </option>
+                            <option value = "Denmark"> Denmark </option>
+                            <option value = "Sweden"> Sweden </option>
+                            <option value = "Norway"> Norway </option>
+                            <option value = "Poland"> Poland </option>
+                            <option value = "China"> China </option>
+                            <option value = "Japan"> Japan </option>
+                            <option value = "Turkey"> Turkey </option>
+                            <option value = "Russia"> Russia </option>
+                            <option value = "Ukraine"> Ukraine</option>
+                            <option value = "Mexico"> Mexico </option>
+                            <option value = "Netherlands"> Netherlands </option>
+                            <option value = "Czech Republic"> Czech Republic </option>
+                            <option value = "Thailand"> Thailand </option>
+                            <option value = "Veitnam"> Veitnam </option>
+                            <option value = "Korea">Korea</option>
+                         </select>
+                          <br/> 
+                          <br/>
+                    <div> About Me </div>
+                </div>
+                    <br/>
+                      <textarea className ="input" rows="10" cols="80"  onChange = {event => this.handleChange(event.target.value)} placeholder={this.props.about}></textarea>  
+                    <br/>
+                    <br/>
+                      <button className="button" onClick={this.editProfile}>Update</button>
+                </div>
+            </div>
+          </Background>
+        </div>
       </div>
     );
   }

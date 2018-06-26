@@ -38,15 +38,16 @@ class BackpackerTopics extends Component {
     }
 
     
-
     render() {
       
     let backpackerTopics = this.state.topics.map(element => {
         
             return(
             <div className = "BackpackerTopics" style={{backgroundImage: `url(${element.picture})`, backgroundSize: 'cover', height:'80vh', display: 'flex', justifyContent:'center', alignItems: 'center', fontSize:'40px', opacity:'.85'}}key = {element.id}>
-
-                <Link style={{color:'rgba(30, 74, 121)', textDecoration:'none',justifyContent:'center', alignItems: "center", background: 'rgba(255, 255, 255, 0.76)', position: 'absolute', width: '100%', textAlign: 'center'}} to ={{pathname:`/backpackersblogtopics/${element.topics}/backpackerblog`, state: element.id}}> <LottieControllerTopics/>{element.topics}</Link>
+                <Link style={{color:'rgba(30, 74, 121)', textDecoration:'none',justifyContent:'center', alignItems: "center", background: 'rgba(255, 255, 255, 0.76)', position: 'absolute', width: '100%', textAlign: 'center'}} to ={{pathname:`/backpackersblogtopics/${element.topics}/backpackerblog`, state: element.id}}> 
+                    <LottieControllerTopics/>
+                        {element.topics}
+                </Link>
             </div>
         )
     })
@@ -54,13 +55,13 @@ class BackpackerTopics extends Component {
         return (
             <div>
               <Nav/>
-              <Background>
-                <div style={{paddingTop: '80px'}}>
-                    <div className="Countries">
-                            Topics
-                        {backpackerTopics}
+                 <Background>
+                    <div style={{paddingTop: '80px'}}>
+                         <div className="Countries">
+                                Topics
+                            {backpackerTopics}
+                         </div>
                     </div>
-                </div>
                 </Background>
             </div>
         );

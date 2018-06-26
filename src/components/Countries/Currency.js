@@ -38,16 +38,20 @@ import axios from 'axios';
     console.log('hey', this.state.submittedValue, '1', this.state.rates[newRates[1]])
         return (
             <div> Currency Converter
-            <br/>
-           {this.state.submit ?  <p> The current exhange : USD ($1) = {this.state.rates[this.state.submittedValue]} </p>:''} 
-            {/* <input className='input-Currency' onChange={(e) => this.setState({submittedValue: e.target.value})} placeholder='Enter Currency'/>  */}
-            <select onChange={(event)=> this.setState({submittedValue: event.target.value})}>
-                <option value='default'>Select</option>
-                {newRates.map((e,i)=> {
-                    return <option key={i} value={e}>{e}</option>
+                <br/>
+                {this.state.submit ?  <p> The current exhange : USD ($1) = {this.state.rates[this.state.submittedValue]} </p>:''} 
+             <select onChange={(event)=> this.setState({submittedValue: event.target.value})}>
+                <option value='default'>
+                        Select
+                </option>
+                        {newRates.map((e,i)=> {
+                    return 
+                    <option key={i} value={e}>
+                                {e}
+                    </option>
                 })}
             </select>
-            <button className ="button" onClick={() => this.setState({submit:true})}>Submit</button>
+                    <button className ="button" onClick={() => this.setState({submit:true})}>Submit</button>
             </div>
         );  
     }

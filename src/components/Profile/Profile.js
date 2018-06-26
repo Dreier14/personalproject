@@ -47,35 +47,33 @@ const Background = styled.div
     return (
       <div>    
        <Nav/>
-      <Background>
-      <div style={{paddingTop: '80px', color:'rgba(30, 74, 121)'}}>
-       
-         {user && 
-         <div>
-          <div className="center">
-          <h1>Profile</h1>
-          <hr/>
-          <div className = "movebutton1">
-                 <button className ="button"> <Link to="/edit">Edit profile</Link> </button>
-              </div>
-              <div className = 'movebutton2'>
-                 <button className="button" onClick={() => this.logout()}>Log out</button>
-              </div>
-              <img src={myUser.picture} className="photo" height="300px" width="300px" /> 
-              
+        <Background>
+          <div style={{paddingTop: '80px', color:'rgba(30, 74, 121)'}}>
+            {user && 
+              <div>
+                <div className="center">
+                   <h1>Profile</h1>
+                    <hr/>
+                  <div className = "movebutton1">
+                     <button className ="button"> <Link to="/edit">Edit profile</Link> </button>
+                  </div>
+                  <div className = 'movebutton2'>
+                    <button className="button" onClick={() => this.logout()}>Log out</button>
+                  </div>
+                   <img src={myUser.picture} className="photo" height="300px" width="300px" /> 
                   <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , width: "63.5%"}}>
-                    <h1>{myUser.username}</h1>
-                    <h3>Email: {myUser.email}</h3>
-                    <h2> About Me: </h2>
-                    <p>{myUser.about}</p>
-                    <h4> Country:{myUser.country}</h4>
+                      <h1>{myUser.username}</h1>
+                      <h3>Email: {myUser.email}</h3>
+                      <h2> About Me: </h2>
+                      <p>{myUser.about}</p>
+                      <h4> Country:{myUser.country}</h4>
                   </div>
                   <hr/>
+                </div>
+            </div>}
           </div>
-        </div>}
-         </div>
-      </Background>
-       </div>
+        </Background>
+      </div>
     );
   }
 }

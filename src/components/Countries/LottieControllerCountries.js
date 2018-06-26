@@ -10,7 +10,7 @@ export default class LottieControllerCountries extends React.Component {
   }
 
   render() {
-    const buttonStyle = {
+    const buttonStyle = { 
       display: 'block',
       margin: '10px auto'
     };

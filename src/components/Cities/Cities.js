@@ -43,9 +43,12 @@ class Cities extends Component {
         console.log(e);
         return(
             <div style={{backgroundImage: `url(${e.pictures})`, backgroundSize: 'cover', height:'80vh', display: 'flex', flexDirection: 'column', justifyContent:'center', alignItems: 'center'}} key = {e.id}>
-                 <div className="Country"><div style ={{color:'rgba(30, 74, 121)', textDecoration:'underline',fontSize:'40px', alignItems: 'center',justifyContent:'center'}}>{e.cities}</div> <br/>
-                
-                    <p> {e.info} </p>
+                 <div className="Country">
+                    <div style ={{color:'rgba(30, 74, 121)', textDecoration:'underline',fontSize:'40px', alignItems: 'center',justifyContent:'center'}}>
+                            {e.cities}
+                    </div> 
+                                <br/>
+                        <p> {e.information} </p>
                 </div> 
             </div>
        
@@ -58,16 +61,16 @@ class Cities extends Component {
                 <Nav/>
                     <Background>
                          <div style={{paddingTop: '80px'}}>
-                                <br/>
+                                    <br/>
                                 <div className="Countries">
-                                Cities 
+                                    Cities 
                                 </div>
-                             {allCities}
-                             <br/>
-                             <div className = "Weather">
-                             <Weather/>
-                             </div>
-                        </div>
+                                    {allCities}
+                                    <br/>
+                                <div className = "Weather">
+                                    <Weather/>
+                                </div>
+                          </div>
                     </Background>
             </div>  
         );

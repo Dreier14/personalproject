@@ -24,17 +24,16 @@ font-size:1.3em`
             <header className = "header">
               <a href="" className= "logo">WB Explorer</a>  
                 <input className="menu-btn" type="checkbox" id="menu-btn"/>
-                <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
-                <ul className="menu">
-                 <Wrapper><Link to="/" ><FaHome/></Link></Wrapper>
-                 <Wrapper><Link to="/profile">Profile<IoIosContact/></Link></Wrapper>
-                 <Wrapper><Link to="/countries">Country Info<FaGlobe/></Link></Wrapper>
-                 <Wrapper><Link to="/country">Travel Blog<MdLocalAirport/></Link></Wrapper>
-                 <Wrapper><Link to="/backpackersblogtopics">Backpacker Blog<IoIosBriefcase/></Link></Wrapper>
-                 <Wrapper><a href={auth0LoginUrl}>Log In<GoSignIn/></a></Wrapper>
-                </ul>
+                    <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
+                         <ul className="menu">
+                            <Wrapper><Link to="/" ><FaHome/></Link></Wrapper>
+                            <Wrapper><Link to="/profile">Profile<IoIosContact/></Link></Wrapper>
+                            <Wrapper><Link to="/countries">Country Info<FaGlobe/></Link></Wrapper>
+                            <Wrapper><Link to="/country">Travel Blog<MdLocalAirport/></Link></Wrapper>
+                            <Wrapper><Link to="/backpackersblogtopics">Backpacker Blog<IoIosBriefcase/></Link></Wrapper>
+                            <Wrapper><a href={auth0LoginUrl}>Log In<GoSignIn/></a></Wrapper>
+                        </ul>
              </header>
-            
         </div>
         );
     
