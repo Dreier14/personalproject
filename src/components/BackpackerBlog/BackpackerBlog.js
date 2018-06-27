@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import '../CountryBlog/CountryBlog.css';
 import "../Css/Buttons.css";
 import styled from 'styled-components';
-// import BPBlog from '../BackpackerBlog/BackpackerBlog';
+import BBlog from '../BBlog/BBlog';
 
 const Backgroundbackpacker = styled.div`
             background: linear-gradient(rgba(177, 177, 177, 0.6), rgba(177, 177, 177, 0.6)), url('https://images.pexels.com/photos/34511/norway-mountain-sky-blue.jpg?cs=srgb&dl=adventure-backpack-beautiful-34511.jpg&fm=jpg');
@@ -23,13 +23,14 @@ class BackpackerBlog extends Component {
         this.state ={
             posts: [],
             currentPost: '',
-            editPost:''
+            editPost:'',
+            user:props.state.user
         }
     }
 
     componentDidMount(){
         console.log("loaded")
-        if (this.props.state.user === null ){ this.props.history.push('/'),alert("You Must Login or Sign Up to Post!")} 
+        if (this.state.user === null ){ this.props.history.push('/'),alert("You Must Login or Sign Up to Post!")} 
             else this.getBackpackerBlogPost()}
  
 
@@ -39,7 +40,7 @@ class BackpackerBlog extends Component {
         })
     }
 
-    handleChanges =(val) =>{
+    handleChanges = (val) =>{
         this.setState({
             editPost: val
         })
@@ -47,7 +48,7 @@ class BackpackerBlog extends Component {
     createBackpackerBlogPost(){
     //    console.log(this.props) 
         // console.log(this.props.location.state);
-        const {username, picture} = this.props.state.user;
+        const {username, picture} = this.state.user;
         let param = {
             topic_id: this.props.location.state,   
             username: username,
@@ -109,25 +110,7 @@ class BackpackerBlog extends Component {
         let username = this.state.posts && this.state.posts.map(element => {
             console.log(element.username)
             return(
-                <div key ={element.id}>
-                <h3> {element.username}</h3>
-                <img src= {element.picture} className="photo" height="100px" width="100px"/>
-            <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , width: "63.5%"}}>
-                <h5>{element.post}</h5>
-                <h6>{element.stamp}</h6>
-            </div>
-            {this.props.state.user.id === element.user_id ?
-            <div>
-                <textarea className ="inputChange" rows="9" cols="50" id={element.id} onChange = { event => this.handleChanges(event.target.value)}></textarea> 
-                    <br/>
-                <div className = "movebutton1">
-                    <button className="button"onClick={() => this.deletePost(element.id)}>Delete</button>
-                </div>
-                <div className = "movebutton2">
-                    <button className="button"onClick={() => this.editBackpackerBlogPost(element.id)}> Edit Post </button>
-                </div>
-            </div> : ''}
-        </div>
+               <BBlog user={this.state.user} handleChange ={this.handleChange} handleChanges={this.handleChanges} clearAllFields = {this.clearAllFields} editBackpackerBlogPost = {this.editBackpackerBlogPost} deletePost = {this.deletePost} {...element}/>
             )
     }).reverse()
             return (
