@@ -14,6 +14,8 @@
     width: 40%;
     border: rgba(30, 74, 121, 0.692);
     border-width:thin;
+
+
 }
 .movebutton1{
     justify-content: center;
@@ -28,4 +30,31 @@ justify-content: center;
 text-align: right;
 margin:5px;
 padding-bottom: -40px;
+}
+@media (max-width: 414px) {
+
+    .center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1em;
+        border: rgba(30, 74, 121, 0.692);
+        border-width:thin;
+        position: relative;
+        width:100% 
+        }
+        .movebutton1{
+            justify-content: center;
+            text-align: right;
+            margin: 5px;
+            padding-top: 10px;
+            
+        }
+        
+        .movebutton2{
+        justify-content: center;
+        text-align: right;
+        margin:5px;
+        padding-bottom: -40px;
+        }
 }

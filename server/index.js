@@ -8,6 +8,7 @@ const authController = require('./authController');
 const path = require("path");
 const {test} = require('./function');
 const cloudinary = require('cloudinary');
+// const sM = require('./controllers/sendMailController')
 
 
 const PORT = 3500;
@@ -56,6 +57,7 @@ app.get('/api/getCountries/', ctrl.getCountries);
 app.get('/api/getCities/:id', ctrl.getCities);
 app.get('/api/getCountry/',ctrl.getCountry);
 app.get('/api/getBackpackerBlogTopics/',ctrl.getBackpackerBlogPostTopics);
+// app.post('/api/sendmail', sM.sendMail);
 
 
 

@@ -14,12 +14,12 @@ const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/adamsdevmountain/
 
 const Background = styled.div
       `background: linear-gradient(rgba(177, 177, 177, 0.6), rgba(177, 177, 177, 0.6)), url('https://images.pexels.com/photos/723240/pexels-photo-723240.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-       min-height: 100vh;
+       min-height: 120vh;
        background-position: center;
        background-repeat: no-repeat;
        background-attachment: fixed;
        background-size: cover;
-      position: relative;`
+       position: relative;`
 
 
 class EditProfile extends Component {
@@ -160,7 +160,7 @@ class EditProfile extends Component {
                       <br/>
                     <div> Profile Photo </div>
                       <br/>
-                    <input type="file" name="file" id="file" className="inputfile" onChange={(event)=>this.handleImageUpload(event.target.files)} placeholder={this.props.picture}/>
+                    <input type="file" name="file" id="file" className="inputfile"   height="200px" width= "200px"onChange={(event)=>this.handleImageUpload(event.target.files)} placeholder={this.props.picture}/>
                       <label for="file">Choose a file</label>
                         <br/>
                         <br/>
@@ -200,7 +200,7 @@ class EditProfile extends Component {
                     <div> About Me </div>
                 </div>
                     <br/>
-                      <textarea className ="input" rows="10" cols="80"  onChange = {event => this.handleChange(event.target.value)} placeholder={this.props.about}></textarea>  
+                      <textarea className ="input" rows="10" cols="40"  onChange = {event => this.handleChange(event.target.value)} placeholder={this.props.about}></textarea>  
                     <br/>
                     <br/>
                       <button className="button" onClick={this.editProfile}>Update</button>

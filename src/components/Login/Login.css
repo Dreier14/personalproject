@@ -10,6 +10,45 @@
 }
 
 
+.outer{
+   color: rgba(25, 88, 206, 0.836);
+   border: 6px rgba(25, 88, 206, 0.836);
+   text-align: center;
+   border-height: 2em;
+   background-color: rgba(211, 211, 211, 0.411);
+   font-size: 5em;
+   position:absolute;
+   width:100%;
+   top:15%;
+   margin:auto
+}
+
+.inner{
+   color:black;
+   border: 6px rgba(25, 88, 206, 0.836);
+   text-align: center;
+   border-height: 2em;
+   background-color: rgba(211, 211, 211, 0.411);
+   font-size: .35em;
+   position:absolute;
+   width:100%;
+   top:100%;
+   margin:auto;
+}
+
+@media screen and (max-width: 414px) {
+    .background{
+        width:100%;
+    }
+
+    .outer{
+        font-size: 4em;
+
+    }
+    .inner{
+        font-size: .3em;
+    }
+}
 
 
 /* .greeting{

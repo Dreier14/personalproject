@@ -125,7 +125,7 @@ class BackpackerBlog extends Component {
                                      {username && username}
                                     <hr/>
                                      <div className='createpost' style = {{color:'rgb(30, 74, 121)', fontSize:'3em'}} >Create a Post</div>
-                                        <textarea className="input" rows="9" cols="50" onChange ={ event => this.handleChange(event.target.value)} value={this.state.currentPost}></textarea>
+                                        <textarea className="input" rows="9" cols="40" onChange ={ event => this.handleChange(event.target.value)} value={this.state.currentPost}></textarea>
                                     <br/>
                                     <div className = "movebutton1">
                                     <button className="button" onClick ={()=> {this.createBackpackerBlogPost()}}> Create Post </button>

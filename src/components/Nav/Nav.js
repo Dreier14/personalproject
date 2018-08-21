@@ -22,7 +22,7 @@ font-size:1.3em`
         <div>
           
             <header className = "header">
-              <a href="" className= "logo">WB Explorer</a>  
+              <Link to = "/" className= "logo">WB Explorer</Link>
                 <input className="menu-btn" type="checkbox" id="menu-btn"/>
                     <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
                          <ul className="menu">

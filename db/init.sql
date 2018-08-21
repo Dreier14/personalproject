@@ -7,7 +7,7 @@ create table if not exists country_blog_posts(
     picture text,
     countries_id integer,
     post text, 
-    stamp timestamp
+    stamp timestamp without time zone 
 );
 
 drop table if exists backpackers_blog_posts;
@@ -19,7 +19,7 @@ create table if not exists backpackers_blog_posts(
     topic_id integer,
     picture text, 
     post text, 
-    stamp timestamp 
+    stamp timestamp without time zone 
 );
 
 drop table if exists country;

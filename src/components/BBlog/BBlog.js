@@ -5,13 +5,13 @@ const BBlog = (props) => {
         <div key ={props.id}>
         <h3> {props.username}</h3>
         <img src= {props.picture} className="photo" height="100px" width="100px"/>
-    <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , width: "63.5%"}}>
+    <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , width: "63.5%", wordWrap:"break-word"}}>
         <h5>{props.post}</h5>
         <h6>{props.stamp}</h6>
     </div>
     {props.user.id === props.user_id ?
     <div>
-        <textarea className ="inputChange" rows="9" cols="50" id={props.id} onChange = { event => props.handleChanges(event.target.value)}></textarea> 
+        <textarea className ="inputChange" rows="9" cols="40" id={props.id} onChange = { event => props.handleChanges(event.target.value)}></textarea> 
             <br/>
         <div className = "movebutton1">
             <button className="button"onClick={() => props.deletePost(props.id)}>Delete</button>

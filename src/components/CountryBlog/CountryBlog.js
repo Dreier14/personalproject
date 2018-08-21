@@ -99,10 +99,7 @@ const Background = styled.div
     deletePost(id){
         console.log(id)
         axios.delete(`/api/deleteCountryBlogPost/${id}`).then(response =>
-        {   
-            console.log(response);
-
-            this.getCountryBlogPost()
+        {  this.getCountryBlogPost()
         }).catch(err => console.log("axios delete error---------->", err))
         console.log(id)
     }
@@ -123,13 +120,13 @@ const Background = styled.div
                 <div key={element.id}>
                     <h1>{element.username}</h1>
                     <img src ={element.picture} className ="photo" height="100px" width="100px"/>
-                    <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , width: "63.5%"}}>
+                    <div style={{ justifyContent: "center", background: "rgba(255, 255, 255, 0.493)" , wordWrap:"break-word"}}>
                     <h5>{element.post}</h5>
                     <h6>Date:{element.stamp}</h6>
                     </div>
                     {this.props.state.user.id === element.user_id ?
                     <div>
-                    <textarea className ="inputChange" rows="9" cols="50" id={element.id} onChange = { event => this.handleChanges(event.target.value)}></textarea> 
+                    <textarea className ="inputChange" rows="9" cols="40" id={element.id} onChange = { event => this.handleChanges(event.target.value)}></textarea> 
                     <br/>
                     <div className = "movebutton1">
                     <button className="button" onClick={() => this.deletePost(element.id)}>Delete</button>
@@ -156,7 +153,7 @@ const Background = styled.div
                         <br/> 
                         <hr/>
                         <div className='createpost' style = {{color:'rgb(30, 74, 121)', fontSize:'3em'}} >Create a Post</div>
-                            <textarea className ="input" rows="9" cols="50" onChange = { event => this.handleChange(event.target.value)} value={this.state.currentPost}></textarea> 
+                            <textarea className ="input" rows="9" cols="40" onChange = { event => this.handleChange(event.target.value)} value={this.state.currentPost}></textarea> 
                         <br/>
                         <div className = "movebutton1">
                             <button className="button" onClick = {() => {this.createCountryBlogPost()}}> Create Post </button>
